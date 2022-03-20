@@ -1,0 +1,78 @@
+* Shell Grammar study
+** Basic
+모든 sh파일은 아래의 문구로 시작한다.
+#! /bin/bash
+
+hello world with shell script
+#+begin_src shell
+echo "Hello World"
+#+end_src
+
+comment는 #로 시작한다
+#+begin_src shell
+# this is how to write comment
+:'
+multi-line comment
+'
+#+end_src
+** Condition
+if statement
+#+begin_src shell
+  n=10
+  if [ $n -lt 10 ]
+  then
+  echo "It is a one digit number"
+  else
+  echo "It is a two digit number"
+  fi
+#+end_src
+
+#+RESULTS:
+: It is a two digit number
+
+** 연산
+number 연산
+#+begin_src shell
+  # Add two number
+  ((sum=25+35))
+  echo $sum
+  ((subtraction = 50-20))
+  echo $subtraction
+#+end_src
+** Loop
+While loop
+#+begin_src shell
+valid=true
+count=1
+while [ $valid ]
+do
+    echo $count
+    if [ $count -eq 5 ];
+    then
+	break
+    fi
+    ((count++))
+done
+
+#+end_src
+
+For loop
+#+begin_src shell
+# for loop
+for (( counter=10; counter>0; counter-- ))
+do
+    echo "counter { $counter }number"
+done
+printf "\n"
+
+# end for loop
+
+#+end_src
+
+** Interaction
+how to read user input
+#+begin_src shell
+echo "Enter Your Name"
+read name
+echo "Welcome $name to shell-scriping!"
+#+end_src
